@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { base } from "$app/paths";
     import { loadAllSavedCharts } from "$lib/chartStorage";
   
     import type { Chart } from "$lib/types";
@@ -58,7 +59,7 @@
                 <button
                   class="px-3 py-1 bg-orange-500 text-white rounded hover:bg-orange-600 text-sm"
                   onclick={() =>
-                    (window.location.href = `/${chart.type?.toLowerCase() || "line"}?chart=${index}`)}
+                    (window.location.href = `${base}/${chart.type?.toLowerCase() || "line"}?chart=${index}`)}
                 >
                   Open
                 </button>
