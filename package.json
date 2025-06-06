@@ -15,10 +15,10 @@
     "db:push": "drizzle-kit push",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio",
-    "test:e2e": "npx playwright test",
-    "test:e2e:ui": "npx playwright test --ui",
-    "test:unit": "npx vitest",
-    "test:integration": "npx vitest"
+    "test:unit": "npm run tests/unit",
+    "test:integration": "npm run tests/integration",
+    "test:e2e": "npx playwright test tests/e2e",
+    "test:e2e:ui": "npx playwright test --ui"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.5",
