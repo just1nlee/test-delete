@@ -13,9 +13,6 @@ jobs:
         with:
           node-version: lts/*
       - run: npm ci
-      - uses: actions/download-artifact@v4
-        with:
-          name: build
-          path: build
+      - run: npm run build
       - run: npm run test:unit
         
