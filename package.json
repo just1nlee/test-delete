@@ -16,9 +16,7 @@
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio",
     "test:unit": "vitest run tests/unit",
-    "test:integration": "vitest run tests/integration",
-    "test:e2e": "npx playwright test tests/e2e",
-    "test:e2e:ui": "npx playwright test --ui"
+    "test:integration": "vitest run tests/integration"
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.5",
