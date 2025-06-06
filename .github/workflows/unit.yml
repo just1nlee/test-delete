@@ -1,0 +1,21 @@
+name: Unit Tests with Vitest
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - run: npm ci
+      - uses: actions/download-artifact@v4
+        with:
+          name: build
+          path: build
+      - run: npm run test:unit
+        

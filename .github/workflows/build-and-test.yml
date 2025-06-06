@@ -1,0 +1,42 @@
+name: Build and test
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_call:
+    inputs:
+      upload-pages-artifact:
+        type: boolean
+        required: false
+  workflow_dispatch:
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - run: npm ci
+      - run: npm run build
+        env:
+          BASE_PATH: '/${{ github.event.repository.name }}'
+
+      - if: ${{ inputs.upload-pages-artifact }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: build/
+
+  unit-tests:
+    uses: ./.github/workflows/unit.yml
+    needs: setup
+  
+  integration-tests:
+    uses: ./.github/workflows/integration.yml
+    needs: setup
+  
+  e2e-tests:
+    uses: ./.github/workflows/e2e.yml
+    needs: setup
