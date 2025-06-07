@@ -2,7 +2,7 @@
 import { expect, test, describe } from "vitest";
 
 //code imports
-import { saveChart, loadAllSavedCharts, loadSavedChart, updateCurrentChartData, loadCurrentChartData, deleteChart, createEmptyChart } from '../src/lib/chartStorage';
+import { saveChart, loadAllSavedCharts, loadSavedChart, updateCurrentChartData, loadCurrentChartData, deleteChart, createEmptyChart } from '../../src/lib/chartStorage';
 
 // need to test loadAllSavedCharts first since we cannot interact with local
 // program memory without violating the rules of unit testing.
