@@ -24,9 +24,8 @@ jobs:
           BASE_PATH: '/${{ github.event.repository.name }}'
 
       - if: ${{ inputs.upload-pages-artifact }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: build
           path: build/
 
   unit-tests:
